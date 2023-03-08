@@ -1,28 +1,74 @@
-import React from "react"
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
-    return(
-            <div className="w-full sm:w-1/2 lg:2/3 px-6 bg-gray-500 bg-opacity-20 bg-clip-padding backdrop-filter backdrop-blur-sm text-white z-50 py-4  rounded-lg">
-                <div className="w-full flex justify-center text-black text-xl mb:2 md:mb-5">
-                    Sign In
-                </div>
-                <div className="mb-6">
-                    <label for="email" className="block mb-2 text-xs font-medium text-white">Your email</label>
-                        <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@neurolink.com" required></input>
-                </div>
-                <div className="mb-6">
-                    <label for="password" className="block mb-2 text-xs font-medium text-white">Your password</label>
-                    <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></input>
-                </div>
-                <div className="flex flex-row justify-between">
-                    <div className="text-white text-sm md:text-md ">Forgot Password</div>
-                        <div className="text-black text-sm md:text-md">Signup</div>
-                        </div>
-                    <div className="mt-4 md:mt-10 w-full flex justify-center text-sm md:text-xl bg-black py-2 rounded-md">
-                    Login
-                </div>
-            </div>            
-    )
-}
+export default function Login() {
+    return (
+        <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+            <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+                <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
+                   Sign in
+                </h1>
+                <form className="mt-6">
+                    <div className="mb-2">
+                        <label
+                            for="email"
+                            className="block text-sm font-semibold text-gray-800"
+                        >
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            placeholder="emailaddress@example.com"
+                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        />
+                    <div className="flex">
+                        <span className='text-red-400 text-sm m-2 p-2'>error</span>  
+                    </div>  
+                    </div>
+                    <div className="mb-2">
+                        <label
+                            for="password"
+                            className="block text-sm font-semibold text-gray-800"
+                        >
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        />
+                    </div>
+                    <div className="flex">
+                        <span className='text-red-400 text-sm m-2 p-2'>error</span>  
+                    </div> 
+                    
+                    <a
+                        href="#"
+                        className="text-xs text-purple-600 hover:underline"
+                    >
+                        Forget Password?
+                    </a>
+                    <div className="mt-6">
+                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                            Login
+                        </button>
+                    </div>
+                </form>
+                <Link to="/forgot-password"
+                className='mb-2 inline-block text-base - text-[#adadad]'>
+                    
+                </Link>
 
-export default Login;
+                <p className="mt-8 text-xs font-light text-center text-gray-700">
+                    {" "}
+                    Don't have an account?{" "}
+                    <a
+                        href="/register"
+                        className="font-medium text-purple-600 hover:underline"
+                    >
+                        Sign up
+                    </a>
+                </p>
+            </div>
+        </div>
+        );
+    }    
